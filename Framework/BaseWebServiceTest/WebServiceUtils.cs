@@ -30,9 +30,6 @@ namespace Magenic.Maqs.BaseWebServiceTest
         /// <param name="contentEncoding">How to encode the content</param>
         /// <param name="mediaType">The type of media</param>
         /// <returns>The string content</returns>
-        /// <example>
-        /// <code source = "../WebServiceTesterUnitTesting/WebServiceWithDriverPut.cs" lang="C#" />
-        /// </example>
         public static StringContent MakeStringContent(string body, Encoding contentEncoding, string mediaType)
         {
             return new StringContent(body, contentEncoding, mediaType);
@@ -45,9 +42,6 @@ namespace Magenic.Maqs.BaseWebServiceTest
         /// <param name="contentEncoding">How to encode the content</param>
         /// <param name="mediaType">The type of media</param>
         /// <returns>The stream content</returns>
-        /// <example>
-        /// <code source = "../WebServiceTesterUnitTesting/WebServiceWithDriverPut.cs" lang="C#" />
-        /// </example>
         public static StreamContent MakeStreamContent(string body, Encoding contentEncoding, string mediaType)
         {
             Stream stream = StringToStream(body, contentEncoding);
@@ -62,9 +56,6 @@ namespace Magenic.Maqs.BaseWebServiceTest
         /// <param name="body">The content as a Stream</param>
         /// <param name="mediaType">The type of media</param>
         /// <returns>The stream content</returns>
-        /// <example>
-        /// <code source = "../WebServiceTesterUnitTesting/WebServiceWithDriverPut.cs" lang="C#" />
-        /// </example>
         public static StreamContent MakeStreamContent(Stream body, string mediaType)
         {
             StreamContent streamContent = new StreamContent(body);
@@ -79,9 +70,6 @@ namespace Magenic.Maqs.BaseWebServiceTest
         /// <param name="contentEncoding">How to encode the content</param>
         /// <param name="mediaType">The content type of media, will add Content-Type header</param>
         /// <returns>The stream content</returns>
-        /// <example>
-        /// <code source = "../WebServiceTesterUnitTesting/WebServiceNonStandardHttpContentTests.cs" lang="C#" />
-        /// </example>
         public static StreamContent MakeNonStandardStreamContent(string body, Encoding contentEncoding, string mediaType)
         {
             Stream stream = StringToStream(body, contentEncoding);
@@ -94,9 +82,6 @@ namespace Magenic.Maqs.BaseWebServiceTest
         /// <param name="body">The content as a stream</param>
         /// <param name="mediaType">The content type of media, will add Content-Type header</param>
         /// <returns>The stream content</returns>
-        /// <example>
-        /// <code source = "../WebServiceTesterUnitTesting/WebServiceNonStandardHttpContentTests.cs" lang="C#" />
-        /// </example>
         public static StreamContent MakeNonStandardStreamContent(Stream body, string mediaType)
         {
             StreamContent streamContent = new StreamContent(body);
@@ -110,9 +95,6 @@ namespace Magenic.Maqs.BaseWebServiceTest
         /// <typeparam name="T">The deserialized type</typeparam>
         /// <param name="message">The HTTP response</param>
         /// <returns>The XML document body deserialized</returns>
-        /// <example>
-        /// <code source = "../WebServiceTesterUnitTesting/WebServiceWithDriverGets.cs" lang="C#" />
-        /// </example>
         public static T DeserializeXmlDocument<T>(HttpResponseMessage message)
         {
             string responseBody = message.Content.ReadAsStringAsync().Result;
@@ -126,9 +108,6 @@ namespace Magenic.Maqs.BaseWebServiceTest
         /// <typeparam name="T">The deserialized type</typeparam>
         /// <param name="message">The HTTP response</param>
         /// <returns>The JSON body deserialized</returns>
-        /// <example>
-        /// <code source = "../WebServiceTesterUnitTesting/WebServiceWithDriverGets.cs" lang="C#" />
-        /// </example>
         public static T DeserializeJson<T>(HttpResponseMessage message)
         {
             string responseBody = message.Content.ReadAsStringAsync().Result;

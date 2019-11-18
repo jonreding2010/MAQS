@@ -78,9 +78,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Get the list of mailbox names
         /// </summary>
         /// <returns>A list of mailbox names</returns>
-        /// /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override List<string> GetMailBoxNames()
         {
             try
@@ -100,9 +97,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="mailbox">The mailbox name</param>
         /// <returns>The mailbox</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example> 
         public override IMailFolder GetMailbox(string mailbox)
         {
             try
@@ -121,9 +115,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Select a mailbox by name
         /// </summary>
         /// <param name="mailbox">The name of the mailbox</param>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example> 
         public override void SelectMailbox(string mailbox)
         {
             try
@@ -142,9 +133,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Create a mailbox
         /// </summary>
         /// <param name="newMailBox">The name of the new mailbox</param>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override void CreateMailbox(string newMailBox)
         {
             try
@@ -166,10 +154,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="headerOnly">Only get header data</param>
         /// <param name="markRead">Mark the email as read</param>
         /// <returns>The message</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override MimeMessage GetMessage(string uid, bool headerOnly = false, bool markRead = false)
         {
             try
@@ -190,9 +174,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="mailBox">The mailbox in which to find the messages</param>
         /// <returns>A list of email messages</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>   
         public override List<MimeMessage> GetAllMessageHeaders(string mailBox)
         {
             try
@@ -211,9 +192,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Delete the given email
         /// </summary>
         /// <param name="message">The email with to delete</param>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override void DeleteMessage(MimeMessage message)
         {
             try
@@ -232,9 +210,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Delete the email with the given unique identifier
         /// </summary>
         /// <param name="uid">The unique identifier for the email</param>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override void DeleteMessage(string uid)
         {
             try
@@ -253,10 +228,7 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Move the given email to the destination mailbox
         /// </summary>
         /// <param name="message">The email</param>
-        /// <param name="destinationMailbox">The destination mailbox</param>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>  
+        /// <param name="destinationMailbox">The destination mailbox</param> 
         public override void MoveMailMessage(MimeMessage message, string destinationMailbox)
         {
             try
@@ -276,9 +248,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="uid">The unique identifier for the email</param>
         /// <param name="destinationMailbox">The destination mailbox</param>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override void MoveMailMessage(string uid, string destinationMailbox)
         {
             try
@@ -298,9 +267,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="uid">The unique identifier for the email</param>
         /// <returns>The list of </returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override List<MimeEntity> GetAttachments(string uid)
         {
             try
@@ -320,9 +286,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="message">The message</param>
         /// <returns>The list of attachments</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override List<MimeEntity> GetAttachments(MimeMessage message)
         {
             try
@@ -344,9 +307,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="message">The email</param>
         /// <param name="downloadFolder">The download folder</param>
         /// <returns>List of file paths for the downloaded files</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override List<string> DownloadAttachments(MimeMessage message, string downloadFolder)
         {
             try
@@ -369,9 +329,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="headersOnly">Only get header data</param>
         /// <param name="markRead">Mark the email as read</param>
         /// <returns>The list of messages that match the search criteria</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override List<MimeMessage> SearchMessages(SearchQuery condition, bool headersOnly = true, bool markRead = false)
         {
             try
@@ -392,9 +349,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="message">The message</param>
         /// <returns>List of content types</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override List<string> GetContentTypes(MimeMessage message)
         {
             try
@@ -415,9 +369,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="message">The message</param>
         /// <param name="contentType">The content type</param>
         /// <returns>The message body that matches the content type</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public override string GetBodyByContentTypes(MimeMessage message, string contentType)
         {
             try

@@ -15,11 +15,6 @@ namespace Magenic.Maqs.BaseTest
     /// <summary>
     /// SoftAssert class
     /// </summary>
-    /// <example>
-    /// <code source="../SeleniumUnitTesting/SeleniumUnitTest.cs" lang="C#" />
-    /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-    /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-    /// </example>
     public class SoftAssert
     {
         /// <summary>
@@ -83,9 +78,6 @@ namespace Magenic.Maqs.BaseTest
         /// Gets a value indicating whether the boolean if the user checks for failures at the end of the test.
         /// </summary>
         /// <returns>If the user checked for failures.  If the number of asserts is 0, it returns true.</returns>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
         public virtual bool DidUserCheck()
         {
             if (this.NumberOfAsserts > 0)
@@ -102,9 +94,7 @@ namespace Magenic.Maqs.BaseTest
         /// Check if there are any failed soft asserts.
         /// </summary>
         /// <returns>True if there are failed soft asserts</returns>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
+   
         public virtual bool DidSoftAssertsFail()
         {
             return this.NumberOfFailedAsserts > 0;
@@ -116,11 +106,7 @@ namespace Magenic.Maqs.BaseTest
         /// <param name="expectedText">Expected value of the string </param>
         /// <param name="actualText">Actual value of the string</param>
         /// <param name="message">Message to be used when logging</param>
-        /// <returns>Boolean if they are equal</returns>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
+        /// <returns>Boolean if they are equal</returns> 
         public virtual bool AreEqual(string expectedText, string actualText, string message = "")
         {
             return this.AreEqual(expectedText, actualText, string.Empty, message);
@@ -134,10 +120,6 @@ namespace Magenic.Maqs.BaseTest
         /// <param name="softAssertName">Soft assert name</param>
         /// <param name="message">Message to be used when logging</param>
         /// <returns>Boolean if they are equal</returns>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
         public virtual bool AreEqual(string expectedText, string actualText, string softAssertName, string message = "")
         {
             void test()
@@ -163,9 +145,6 @@ namespace Magenic.Maqs.BaseTest
         /// <param name="softAssertName">Soft assert name</param>
         /// <param name="failureMessage">Failure message</param>
         /// <returns>Boolean if condition is met</returns>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
         public virtual bool IsTrue(bool condition, string softAssertName, string failureMessage = "")
         {
             void test()
@@ -191,9 +170,6 @@ namespace Magenic.Maqs.BaseTest
         /// <param name="softAssertName">Soft assert name</param>
         /// <param name="failureMessage">Failure message</param>
         /// <returns>Boolean if condition is met</returns>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
         public virtual bool IsFalse(bool condition, string softAssertName, string failureMessage = "")
         {
             void test()
@@ -251,10 +227,6 @@ namespace Magenic.Maqs.BaseTest
         /// <summary>
         /// Fail test if there were one or more failures
         /// </summary>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
         public void FailTestIfAssertFailed()
         {
             this.FailTestIfAssertFailed("*See log for more details");
@@ -281,12 +253,6 @@ namespace Magenic.Maqs.BaseTest
         /// </summary>
         /// <param name="assertFunction">The assert function</param>
         /// <returns>True if the asset passed</returns>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
         public bool Assert(Action assertFunction)
         {
             // Resetting every time we invoke a test to verify the user checked for failures
@@ -323,10 +289,6 @@ namespace Magenic.Maqs.BaseTest
         /// <param name="assertName">soft assert name</param>
         /// <param name="failureMessage">Failure message</param>
         /// <returns>True if the assert failed</returns>
-        /// <example>
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// <code source="../UtilitiesUnitTests/SoftAssertUnitTests.cs" lang="C#" />
-        /// </example>
         public bool AssertFails(Action assertFunction, Type expectedException, string assertName, string failureMessage = "")
         {
             // Resetting every time we invoke a test to verify the user checked for failures

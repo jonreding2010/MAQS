@@ -79,9 +79,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Check if the account is accessible
         /// </summary>
         /// <returns>True if the email account is accessible</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual bool CanAccessEmailAccount()
         {
             try
@@ -99,9 +96,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Get the list of mailbox names
         /// </summary>
         /// <returns>A list of mailbox names</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<string> GetMailBoxNames()
         {
             return GenericWait.WaitFor<List<string>>(() =>
@@ -144,9 +138,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="mailbox">The mailbox name</param>
         /// <returns>The mailbox</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example> 
         public virtual IMailFolder GetMailbox(string mailbox)
         {
             return GenericWait.WaitFor<IMailFolder>(() =>
@@ -162,9 +153,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Select a mailbox by name
         /// </summary>
         /// <param name="mailbox">The name of the mailbox</param>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example> 
         public virtual void SelectMailbox(string mailbox)
         {
             GenericWait.WaitFor<bool>(() =>
@@ -180,9 +168,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Create a mailbox
         /// </summary>
         /// <param name="newMailBox">The name of the new mailbox</param>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual void CreateMailbox(string newMailBox)
         {
             this.CurrentMailBox = newMailBox;
@@ -198,10 +183,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="headerOnly">Only get header data</param>
         /// <param name="markRead">Mark the email as read</param>
         /// <returns>The message</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual MimeMessage GetMessage(string mailBox, string uid, bool headerOnly = false, bool markRead = false)
         {
             this.SelectMailbox(mailBox);
@@ -215,10 +196,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="headerOnly">Only get header data</param>
         /// <param name="markRead">Mark the email as read</param>
         /// <returns>The message</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual MimeMessage GetMessage(string uid, bool headerOnly = false, bool markRead = false)
         {
             UniqueId uniqueID = new UniqueId(uint.Parse(uid));
@@ -239,10 +216,7 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <summary>
         /// Get a list of email messages from the current mailbox
         /// </summary>
-        /// <returns>A list of email messages</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>        
+        /// <returns>A list of email messages</returns>      
         public virtual List<MimeMessage> GetAllMessageHeaders()
         {
             return this.GetAllMessageHeaders(this.CurrentMailBox);
@@ -253,9 +227,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="mailBox">The mailbox in which to find the messages</param>
         /// <returns>A list of email messages</returns>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>  
         public virtual List<MimeMessage> GetAllMessageHeaders(string mailBox)
         {
             this.SelectMailbox(mailBox);
@@ -266,9 +237,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Delete the given email
         /// </summary>
         /// <param name="message">The email with to delete</param>
-        /// <example>
-        /// <code source="../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual void DeleteMessage(MimeMessage message)
         {
             this.DeleteMessage(this.GetUniqueIDString(message));
@@ -278,9 +246,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// Delete the email with the given unique identifier
         /// </summary>
         /// <param name="uid">The unique identifier for the email</param>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual void DeleteMessage(string uid)
         {
             var folder = this.GetCurrentFolder();
@@ -301,9 +266,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="message">The email</param>
         /// <param name="destinationMailbox">The destination mailbox</param>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>  
         public virtual void MoveMailMessage(MimeMessage message, string destinationMailbox)
         {
             this.MoveMailMessage(this.GetUniqueIDString(message), destinationMailbox);
@@ -314,9 +276,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="uid">The unique identifier for the email</param>
         /// <param name="destinationMailbox">The destination mailbox</param>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual void MoveMailMessage(string uid, string destinationMailbox)
         {
             IMailFolder folder = this.GetCurrentFolder();
@@ -328,9 +287,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="uid">The unique identifier for the email</param>
         /// <returns>The list of </returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<MimeEntity> GetAttachments(string uid)
         {
             return this.GetAttachments(this.CurrentMailBox, uid);
@@ -342,9 +298,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="mailBox">The mailbox</param>
         /// <param name="uid">The unique identifier for the email</param>
         /// <returns>The list of attachments</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<MimeEntity> GetAttachments(string mailBox, string uid)
         {
             this.SelectMailbox(mailBox);
@@ -357,9 +310,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="message">The message</param>
         /// <returns>The list of attachments</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<MimeEntity> GetAttachments(MimeMessage message)
         {
             return message.Attachments.ToList();
@@ -370,9 +320,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="message">The email</param>
         /// <returns>List of file paths for the downloaded files</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<string> DownloadAttachments(MimeMessage message)
         {
             return this.DownloadAttachments(message, EmailConfig.GetAttachmentDownloadDirectory());
@@ -384,9 +331,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="message">The email</param>
         /// <param name="downloadFolder">The download folder</param>
         /// <returns>List of file paths for the downloaded files</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<string> DownloadAttachments(MimeMessage message, string downloadFolder)
         {
             // Create the download folder if id does not already exist
@@ -418,9 +362,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="headersOnly">Only get header data</param>
         /// <param name="markRead">Mark the email as read</param>
         /// <returns>The list of messages that match the search criteria</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<MimeMessage> SearchMessagesSince(string mailBox, DateTime time, bool headersOnly = true, bool markRead = false)
         {
             this.SelectMailbox(mailBox);
@@ -434,9 +375,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="headersOnly">Only get header data</param>
         /// <param name="markRead">Mark the email as read</param>
         /// <returns>The list of messages that match the search criteria</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<MimeMessage> SearchMessagesSince(DateTime time, bool headersOnly = true, bool markRead = false)
         {
             return this.SearchMessages(SearchQuery.SentSince(time), headersOnly, markRead);
@@ -450,10 +388,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="headersOnly">Only get header data</param>
         /// <param name="markRead">Mark the email as read</param>
         /// <returns>The list of messages that match the search criteria</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<MimeMessage> SearchMessages(string mailBox, SearchQuery condition, bool headersOnly = true, bool markRead = false)
         {
             this.SelectMailbox(mailBox);
@@ -467,10 +401,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="headersOnly">Only get header data</param>
         /// <param name="markRead">Mark the email as read</param>
         /// <returns>The list of messages that match the search criteria</returns>
-        /// /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<MimeMessage> SearchMessages(SearchQuery condition, bool headersOnly = true, bool markRead = false)
         {
             object[] args = { condition, headersOnly, markRead };
@@ -482,9 +412,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// </summary>
         /// <param name="message">The message</param>
         /// <returns>List of content types</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual List<string> GetContentTypes(MimeMessage message)
         {
             List<string> types = new List<string>();
@@ -506,9 +433,6 @@ namespace Magenic.Maqs.BaseEmailTest
         /// <param name="message">The message</param>
         /// <param name="contentType">The content type</param>
         /// <returns>The message body that matches the content type</returns>
-        /// <example>
-        /// <code source = "../EmailUnitTests/EmailUnitWithDriver.cs" lang="C#" />
-        /// </example>
         public virtual string GetBodyByContentTypes(MimeMessage message, string contentType)
         {
             foreach (MimeEntity bodyPart in message.BodyParts)
